@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <form action="/listings" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+  <input type="text" name="listing[title]" class="form-control" placeholder="Title" required>
+  <div class="valid-feedback">Title looks good!</div>
+        </div>
+ <div class="mb-3" >
+      <label for="description" class="form-label">Description</label>
+     <textarea name="listing[description]"  class="form-control"  required></textarea>
+ </div>
+  <br>
+  <br>
+  <div  class="mb-3">
+    <label for="image" class="form-label">Upload Listing Image</label>
+     <input type="file" name="listing[image]" class="form-control"/>
+ </div>
+  <br>
+ <div class="mb-3" >
+    <label for="price" class="form-label">Price</label>
+     <input type="number" class="form-control" name="listing[price]" placeholder="1200" required>
+     <div class="invalid-feedback">Please enter a valid Price</div>
+ </div>
+  <br>
+  <div  class="mb-3">
+    <label for="country" class="form-label">Country</label>
+    <input type="text" name="listing[country]" placeholder="India" required class="form-control">
+       <div class="invalid-feedback">Please enter a valid country</div>
+  </div>
+  <br>
+  <div  class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input type="text" name="listing[location]" placeholder="Rajsthan, jaipur"  required class="form-control">
+       <div class="invalid-feedback">Please enter a valid location</div>
+  </div>
+  <br>
+  <div  class="mb-3">
+    <button class="btn btn-dark add-btn" type="submit">Create Listing</button>
+  </div>
+</form>
+</body>
+
+
+
