@@ -49,17 +49,25 @@ module.exports.validateReview = (req, res, next) => {
 };
 module.exports.isReviewAuthor = async (req, res, next) => {
   const { id, reviewId } = req.params;
-  const review = await Review.findById(reviewId);  // ✅ use Model name
+  const review = await Review.findById(reviewId);  // use Model name
   if (!review) {
     req.flash("error", "Review not found");
     return res.redirect(`/listings/${id}`);
   }
-  if (!review.author.equals(res.locals.currUser._id)) {  // ✅ check ownership
+  if (!review.author.equals(res.locals.currUser._id)) {  //check ownership
     req.flash("error", "You don't have permission to do that");
     return res.redirect(`/listings/${id}`);
   }
   next();
 };
+
+
+
+
+
+
+
+
 
 
 
