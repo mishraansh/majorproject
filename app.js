@@ -25,7 +25,9 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 
 // Cloudinary configuration
-const { cloudinary, storage } = require("./cloudConfig.js");
+// const { cloudinary, storage } = require("./cloudConfig.js");
+// const upload = multer({ storage });
+const { storage } = require("./cloudConfig.js");
 const upload = multer({ storage });
 
 const {
@@ -284,7 +286,7 @@ app.listen(PORT, () => {
 
 
 
-
+// https://majorproject-1-t3d7.onrender.com/listings
 
 
 
@@ -818,3 +820,8 @@ app.listen(PORT, () => {
 
 // // mongodb://atlas-sql-69750667cfd9d5c33c2f4e8f-ggz9o6.a.query.mongodb.net/test?ssl=true&authSource=admin
 // VciSd6Q4yrQgzviV
+
+
+
+
+// website url --https://majorproject-1-t3d7.onrender.com/?
