@@ -67,22 +67,26 @@ mongoose
 
 /* ================= SESSION & PASSPORT ================= */
 
+app.set("trust proxy", 1);
+
 const store = MongoStore.create({
   mongoUrl: dbUrl,
-  crypto: { secret: process.env.SESSION_SECRET || "mysupersecretcode" },
-  touchAfter: 24 * 3600, // reduces session writes
+  crypto: { secret: process.env.SESSION_SECRET },
+  touchAfter: 24 * 3600,
 });
+
 
 app.use(
   session({
     store,
-    secret: process.env.SESSION_SECRET || "mysupersecretcode",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-      secure: process.env.NODE_ENV === "production",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      secure: true,        // Render HTTPS
+      sameSite: "none",    // LOGIN FIX
     },
   })
 );
